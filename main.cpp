@@ -1,12 +1,17 @@
 #include<iostream>
 #include<stdio.h>
 #include<fstream>
+#include<string>
+#include<vector>
 #include"complexvector.hpp"
 #include"complexnumber.h"
 #include"complexvector1.hpp"
 #include"complexvector0.hpp"
+#include"factory.h"
+#include"factoryhori.h"
+#include"factoryvirt.h"
 int autotest();
-//void scan1(const char *inp);
+void scan1(const std::string& inp);
 int main(void)
 {
     std::cout<<"begin"<<endl;
@@ -19,7 +24,7 @@ int main(void)
         cout<<"There is no your.txt";
     lout.close();
 
-    scan("data.txt");
+    scan1("data.txt");
     cout<<autotest();
    /* CComplexVector1 a(3);
     CComplexVector1 b(3);

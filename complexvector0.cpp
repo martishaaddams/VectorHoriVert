@@ -2,13 +2,21 @@
 CComplexVector0::CComplexVector0(const CComplexVector1 &k)
 {
     n=k.n;
-    arr=new ComplexNumber [n];
+    arr.resize(n);
     for(int i=0;i<n;i++)
     {
         arr[i]=k.arr[i];
     }
 }
-
+/*CComplexVector0::CComplexVector0(const int k)
+{
+    n=k;
+    arr=new ComplexNumber [n];
+    for(int i=0;i<n;i++)
+    {
+        arr[i].SetZero();
+    }
+}*/
 const CComplexVector0 CComplexVector0::operator +(const CComplexVector0 &k)
 {
     CComplexVector0 z(n);
@@ -49,7 +57,7 @@ const CComplexVector0 CComplexVector0::operator *(const CComplexVector0 &k)
    // cout<<"basic"<<endl;
     return *this;
 }*/
-int CComplexVector0::output(const char* Filename)
+int CComplexVector0::output(const std::string& Filename)
 {
         {
         //FILE *o=stdout;
@@ -62,7 +70,7 @@ int CComplexVector0::output(const char* Filename)
         }
 
         else
-        {
+        { fout<<"(";
             for(int i=0;i<n;i++)
              {
                  //arr[i].outp();
@@ -70,9 +78,10 @@ int CComplexVector0::output(const char* Filename)
                  fout<<"+";
                  fout<<"i*";
                  fout<<arr[i].b;
-                 fout<<",";
+                 if(i!=n-1)fout<<",";
 
              }
+             fout<<")";
              fout<<endl;
              fout.close();
             return 0;

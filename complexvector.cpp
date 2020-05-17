@@ -3,17 +3,17 @@
 CComplexVector::CComplexVector()
 {
     n=0;
-    arr=nullptr;
 }
 CComplexVector::CComplexVector(const int k)
 {
         n=k;
-        arr=new ComplexNumber[k];
+        arr.resize(k);
+
 }
 CComplexVector::CComplexVector(const int k, const ComplexNumber *str)
 {
     n=k;
-    arr=new ComplexNumber[k];
+    arr.resize(k);
     for(int i=0;i<n;i++)
     {
         arr[i]=str[i];
@@ -22,7 +22,7 @@ CComplexVector::CComplexVector(const int k, const ComplexNumber *str)
 CComplexVector::CComplexVector(const CComplexVector& k)
 {
     n=k.n;
-    arr=new ComplexNumber[n];
+    arr.resize(n);
     for(int i=0;i<n;i++)
     {
         arr[i]=k.arr[i];
@@ -31,9 +31,15 @@ CComplexVector::CComplexVector(const CComplexVector& k)
 }
 CComplexVector::~CComplexVector()
 {
-    delete arr;
-    arr=nullptr;
+
     //std::cout<<"destructor worked"<<endl;
+}
+CComplexVector::CComplexVector(const int k,const std::string& filename)
+{
+    n=k;
+    arr.resize(k);
+    Filename=filename;
+
 }
 
 /*const CComplexVector& CComplexVector::operator +(const CComplexVector &k)
@@ -70,8 +76,8 @@ const CComplexVector& CComplexVector::operator *(const CComplexVector &k)
 CComplexVector& CComplexVector::operator =(const CComplexVector &k)
 {
     n=k.n;
-    delete arr;
-    arr=new ComplexNumber [n];
+    //delete arr;
+    arr.resize(n);
     for(int i=0;i<n;i++)
     {
         arr[i]=k.arr[i];

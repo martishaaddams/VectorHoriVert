@@ -43,7 +43,7 @@ const CComplexVector1 CComplexVector1::operator *(const CComplexVector1 &k)
    // cout<<"basic"<<endl;
     return *this;
 }*/
-int CComplexVector1::output(const char* Filename)
+int CComplexVector1::output(const std::string& Filename)
 {
 
     //FILE *o=stdout;
@@ -54,15 +54,17 @@ int CComplexVector1::output(const char* Filename)
         return -1;
         }
     else
-    {
+    { fout<<"(";
         for(int i=0;i<n;i++)
         {
              fout<<arr[i].a;
              fout<<"+";
              fout<<"i*";
              fout<<arr[i].b;
-             fout<<endl;
+             if(i!=n-1)fout<<endl;
         }
+        fout<<")";
+        fout<<endl;
         fout<<endl;
         fout.close();
          return 0;
