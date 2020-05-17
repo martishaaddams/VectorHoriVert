@@ -41,7 +41,7 @@ void scan(const std::string& inp)
                 in>>n;
                 //if(c==0)
                 //{
-                    cout<<c;
+                    //cout<<c;
 
 
                     (*it)=mp[c]->create(n,out);
@@ -57,17 +57,7 @@ void scan(const std::string& inp)
                     cout<<"Wrong data,retry"<<endl;
 
                 }
-            //}
-            /*else if(c==1)
-            {
-                *it=vert->create(n,out);
-                for (int k=0;k<n;k++)
-                {
-                    in>>(*it)->arr[k].a;
-                    in>>(*it)->arr[k].b;
-                }
 
-            }*/
 
         }
         in.close();
