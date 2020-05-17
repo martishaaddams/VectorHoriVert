@@ -188,7 +188,7 @@ void scan1(const std::string& inp)
             if(arr.size()==1)
                 it=arr.begin();
             else
-                it++;
+                it=--arr.end();
            cout<<arr.size();
             in>>out;
             in>>n;
@@ -234,7 +234,7 @@ void scan1(const std::string& inp)
             ik++;
             ik++;
             //printf("%s",arr[i]->Filename);
-            std::cout<<"fine "<<(*ik)->Filename;
+            std::cout<<"fine "<<(*it)->Filename;
 
             (*it)->output((*it)->Filename);
             cout<<k<<endl;
