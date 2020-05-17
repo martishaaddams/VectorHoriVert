@@ -166,18 +166,10 @@ void scan1(const std::string& inp)
     ifstream in;
     in.open(inp);
     int n,c;
-
-    //int sizearr1;
     std::string out;
-    //CComplexVector **arr;
     std::vector<CComplexVector*> arr;
-    //arr.resize(1);
-    //arr.reserve(1);
-    //int i=0;
-    std::vector<CComplexVector*>::iterator it;//=arr.begin();
-    //std::vector<CComplexVector*>::iterator sizearr=arr.end();
-    std::vector<CComplexVector*>::iterator ik;
-    //sizearr1=10;
+    std::vector<CComplexVector*>::iterator it;
+
     if(!in.is_open())
         cout<<"Something went wrong, there is no such file: "<<inp;
     else
@@ -189,15 +181,11 @@ void scan1(const std::string& inp)
                 it=arr.begin();
             else
                 it=--arr.end();
-           cout<<arr.size();
             in>>out;
             in>>n;
             if(c==0)
             {
                 (*it)=hori->create(n,out);
-                //arr.push_back(hori->create(n,out));
-                //(*it)->Filename=out;
-                std::cout<<"fine "<<out<<" hah"<<(*it)->Filename<<endl;
                 for (int k=0;k<n;k++)
                 {
                      in>>(*it)->arr[k].a;
@@ -207,37 +195,20 @@ void scan1(const std::string& inp)
             else if(c==1)
             {
                 *it=vert->create(n,out);
-            //it=arr.end();
-            //(*it)->Filename=out;
                 for (int k=0;k<n;k++)
                 {
                     in>>(*it)->arr[k].a;
                     in>>(*it)->arr[k].b;
                 }
-                std::cout<<"fine "<<out<<" hah"<<(*it)->Filename<<endl;
 
             }
-                        //arr[i]->out();
-            (*it)->out();
-            //it++;
 
         }
         in.close();
-        //fclose(stdin);
-        //freopen("CON","w",stdin);
-        //sizearr=it;
         for(it=arr.begin();it!=arr.end();++it)
         {
-            int k=1;
-            cout<<k;
-            ik=arr.begin();
-            ik++;
-            ik++;
-            //printf("%s",arr[i]->Filename);
-            std::cout<<"fine "<<(*it)->Filename;
 
             (*it)->output((*it)->Filename);
-            cout<<k<<endl;
 
 
         }
